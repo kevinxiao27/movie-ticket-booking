@@ -1,8 +1,12 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import userRouter from './routes/user-routes'
 dotenv.config()
-const app = express();
+const app = express()
+
+// middlewares
+app.use("/user", userRouter)
 
 mongoose
     .connect(
@@ -15,8 +19,3 @@ mongoose
     )
     .catch((e) => console.log(e))
 
-app.use("/",(req, res, next) => {
-    res.send("<h1>YOYOYO WASSUP</h1><p>hi mom</p>")
-})
-
-// M224jaNcze5GlQsL
