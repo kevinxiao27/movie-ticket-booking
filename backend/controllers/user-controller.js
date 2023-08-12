@@ -97,6 +97,7 @@ export const login = async (req, res, next) => {
   let existingUser;
   try {
     existingUser = await User.findOne({ email });
+    // existingUser just checks if User contains email
   } catch (err) {
     return console.log(err);
   }
@@ -107,9 +108,7 @@ export const login = async (req, res, next) => {
 
   const isPasswordCorrect = bcrypt.compareSync(password, existingUser.password);
   if (!isPasswordCorrect) {
-    return res
-      .status(400)
-      .json({ message: "Password or username does not match" });
+    return res.status(400).json({ message: "Password did not match username" });
   }
 
   return res.status(200).json({ message: "Logged in successfully" });
