@@ -1,9 +1,10 @@
 import express from "express"
-import { getAllUsers } from "../controllers/user-controller"
+import { addUser, getAllUsers, updateUser } from "../controllers/user-controller"
 
 const userRouter = express.Router()
 
 userRouter.get("/", getAllUsers)
-userRouter.post("/")
+userRouter.post("/signup", addUser)
+userRouter.put("/:id", updateUser)
 
 export default userRouter
