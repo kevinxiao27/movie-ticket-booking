@@ -20,7 +20,7 @@ mongoose
     `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.rlfp17q.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() =>
-    app.listen(5003, () =>
+    app.listen(5243, () =>
       console.log(`Connected to Database and Server is active`)
     )
   )
